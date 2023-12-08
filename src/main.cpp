@@ -4,11 +4,12 @@
 #include <iostream>
 #include <string>
 #include <csignal>
+#include <assert.h>
 
 #include "shader.h"
 
 // If fails with a core dump try gdb
-#define ASSERT(x) if (!(x)) raise(SIGTRAP);
+#define ASSERT(x) assert((x));
 
 using namespace std;
 
@@ -102,7 +103,7 @@ int main() {
         glBindVertexArray(VAO);
         //glDrawArrays(GL_TRIANGLES, 0, 6);
         GLClearError();
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        glDrawElements(GL_TRIANGLES, 6, GL_INT, 0);
         ASSERT(GLLogCall());
 
         glfwSwapBuffers(window);

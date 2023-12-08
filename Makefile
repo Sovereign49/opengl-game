@@ -8,7 +8,7 @@ all: ${OUT}
 ${OUT}: ${SRC}
 	g++ ${SRC} -o ${OUT} ${LIBS}
 
-build-debug: ${SRC}
+debug: ${SRC}
 	g++ ${SRC} -o ${OUT} ${LIBS} -g
 
 clean: 
