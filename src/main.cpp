@@ -3,8 +3,11 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <string>
+#include <csignal>
 
 #include "shader.h"
+
+#define ASSERT(x) if (!(x)) raise(SIGTRAP);
 
 using namespace std;
 
@@ -12,10 +15,12 @@ static void GLClearError() {
     while (glGetError() != GL_NO_ERROR);
 }
 
-static void GLCheckError() {
+static bool GLLogCall() {
     while (GLenum error = glGetError()) {
         cout << "[OpenGL Error] (" << error << ")" << endl;
+        return false;
     }
+    return true;
 }
 
 int main() {
@@ -97,7 +102,7 @@ int main() {
         //glDrawArrays(GL_TRIANGLES, 0, 6);
         GLClearError();
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-        GLCheckError();
+        ASSERT(GLLogCall());
 
         glfwSwapBuffers(window);
         glfwPollEvents();
