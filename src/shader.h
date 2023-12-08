@@ -1,31 +1,30 @@
 #pragma once
-
-#include <GL/glew.h>
-
-#include <string>
 #include <fstream>
 #include <sstream>
-#include <iostream>
+
+#include "common.h"
+
+using namespace std;
 
 class Shader
 {
 private:
-    std::string ParseShader(const std::string& filepath);
+    string ParseShader(const string& filepath);
 
-    GLuint CompileShader(GLuint type, const std::string& source);
+    GLuint CompileShader(GLuint type, const string& source);
 
 public:
     // the program ID
     GLuint ID;
 
     // constructor reads and builds the shader
-    Shader(const std::string vertexPath, const std::string fragmentPath);
+    Shader(const string vertexPath, const string fragmentPath);
     // use/activate the shader
     void use();
     // delete the shader
     void del();
     // utility uniform functions
-    void setBool(const std::string &name, bool value) const;
-    void setInt(const std::string &name, int value) const;
-    void setFloat(const std::string &name, float value) const;
+    void setBool(const string &name, bool value, int num) const;
+    void setInt(const string &name, int value, int num) const;
+    void setFloat(const string &name, float value, int num) const;
 };

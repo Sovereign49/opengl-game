@@ -1,15 +1,14 @@
-SRC-DIR := src/
-SRC := $(wildcard ${SRC-DIR}*.cpp)
+SRC := src/common.cpp src/main.cpp src/shader.cpp
 OUT:= gl-game.out
 LIBS := -lglfw -lGLEW -lGL
 
 all: ${OUT}
 
 ${OUT}: ${SRC}
-	g++ ${SRC} -o ${OUT} ${LIBS}
+	g++ ${LIBS} ${SRC} -o ${OUT}
 
 debug: ${SRC}
-	g++ ${SRC} -o ${OUT} ${LIBS} -g
+	g++ ${LIBS} ${SRC} -o ${OUT} -g
 
 clean: 
 	rm ${OUT}
