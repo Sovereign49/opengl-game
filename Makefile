@@ -1,6 +1,6 @@
 SRC-DIR := src/
 SRC := $(wildcard ${SRC-DIR}*.cpp)
-OUT:= gl-test
+OUT:= gl-game.out
 LIBS := -lglfw -lGLEW -lGL
 
 all: ${OUT}
