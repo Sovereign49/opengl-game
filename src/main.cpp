@@ -1,6 +1,17 @@
 #include "common.h"
 #include "shader.h"
-#include "common.cpp"
+
+static void GLClearError() {
+    while (glGetError() != GL_NO_ERROR);
+}
+
+static bool GLLogCall(const char* function, const char* file, int line) {
+    while (GLenum error = glGetError()) {
+        cout << "[OpenGL Error] (" << error << "): " << function << " " << file << ": " << line << endl;
+        return false;
+    }
+    return true;
+}
 
 int main() {
     const string vertsource = "shaders/triangle.vert";

@@ -6,13 +6,22 @@
 #include <string>
 #include <csignal>
 #include <assert.h>
-#include "common.cpp"
 
 using namespace std;
 
-static void GLClearError();
+/*
+static void GLClearError() {
+    while (glGetError() != GL_NO_ERROR);
+}
 
-static bool GLLogCall(const char* function, const char* file, int line);
+static bool GLLogCall(const char* function, const char* file, int line) {
+    while (GLenum error = glGetError()) {
+        cout << "[OpenGL Error] (" << error << "): " << function << " " << file << ": " << line << endl;
+        return false;
+    }
+    return true;
+}
+*/
 
 // If fails with a core dump try gdb
 #define ASSERT(x) assert((x));
