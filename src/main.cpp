@@ -8,6 +8,16 @@
 
 using namespace std;
 
+static void GLClearError() {
+    while (glGetError() != GL_NO_ERROR);
+}
+
+static void GLCheckError() {
+    while (GLenum error = glGetError()) {
+        cout << "[OpenGL Error] (" << error << ")" << endl;
+    }
+}
+
 int main() {
     const string vertsource = "shaders/triangle.vert";
     const string fragsource = "shaders/triangle.frag";
@@ -20,7 +30,9 @@ int main() {
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     // create the window object
-    GLFWwindow *window = glfwCreateWindow(800, 800, "OpenGl-Tut", NULL, NULL);
+    int windowWidth = 800;
+    int windowHeight = 800;
+    GLFWwindow *window = glfwCreateWindow(windowWidth, windowHeight, "OpenGl-Tut", NULL, NULL);
     if (window == NULL) {
         cout << "Failed to create GLFW window" << endl;
         glfwTerminate();
@@ -32,7 +44,7 @@ int main() {
     glewInit();
 
     // Create a viewport
-    glViewport(0, 0, 800, 800);
+    glViewport(0, 0, windowWidth, windowHeight);
 
     GLfloat vertices[] = {
         0.5f,  0.5f,  // top right
@@ -83,7 +95,9 @@ int main() {
         shader.use();
         glBindVertexArray(VAO);
         //glDrawArrays(GL_TRIANGLES, 0, 6);
+        GLClearError();
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        GLCheckError();
 
         glfwSwapBuffers(window);
         glfwPollEvents();
