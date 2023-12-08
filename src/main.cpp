@@ -7,6 +7,7 @@
 
 #include "shader.h"
 
+// If fails with a core dump try gdb
 #define ASSERT(x) if (!(x)) raise(SIGTRAP);
 
 using namespace std;
