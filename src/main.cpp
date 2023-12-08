@@ -1,17 +1,8 @@
-#include "common.h"
+#include <GL/glew.h>
+#include <GL/gl.h>
+#include <GLFW/glfw3.h>
+#include "Renderer.h"
 #include "shader.h"
-
-static void GLClearError() {
-    while (glGetError() != GL_NO_ERROR);
-}
-
-static bool GLLogCall(const char* function, const char* file, int line) {
-    while (GLenum error = glGetError()) {
-        cout << "[OpenGL Error] (" << error << "): " << function << " " << file << ": " << line << endl;
-        return false;
-    }
-    return true;
-}
 
 int main() {
     const string vertsource = "shaders/triangle.vert";
@@ -36,7 +27,11 @@ int main() {
 
     // Make the OpenGL context and initialize glew
     glfwMakeContextCurrent(window);
-    glewInit();
+    glfwSwapInterval(1);
+
+    if (glewInit() != GLEW_OK) {
+        cout << "Failed to initialize glew" << endl;
+    }
 
     // Create a viewport
     GLCall(glViewport(0, 0, windowWidth, windowHeight));
@@ -73,8 +68,9 @@ int main() {
     GLCall(glEnableVertexAttribArray(0));
 
     GLCall(glBindBuffer(GL_ARRAY_BUFFER, 0));
-
+    GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
     GLCall(glBindVertexArray(0));
+    GLCall(glUseProgram(0));
 
     Shader shader = Shader(vertsource, fragsource);
 
@@ -88,7 +84,11 @@ int main() {
 
         // Render Square
         shader.use();
+        GLCall(GLuint location = glGetUniformLocation(shader.ID, "u_Color"));
+        ASSERT(location != -1);
+        GLCall(glUniform4f(location, 1.0f, 0.0f, 0.0f, 1.0f));
         GLCall(glBindVertexArray(VAO));
+        GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO));
         //glDrawArrays(GL_TRIANGLES, 0, 6);
         GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0));
 

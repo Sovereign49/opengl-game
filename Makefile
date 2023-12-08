@@ -1,4 +1,4 @@
-SRC := src/main.cpp src/shader.cpp
+SRC := src/main.cpp src/shader.cpp src/renderer.cpp
 OUT:= gl-game.out
 LIBS := -lglfw -lGLEW -lGL
 
