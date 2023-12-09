@@ -2,18 +2,14 @@
 #include <GL/gl.h>
 #include <GLFW/glfw3.h>
 
-#include "Macros.h"
-#include "Renderer.h"
-#include "Shader.h"
+#include "Macros/Macros.h"
+#include "Renderer/Renderer.h"
+#include "Shader/Shader.h"
 
-#include "VertexBuffer.h"
-#include "IndexBuffer.h"
-#include "VertexArray.h"
-
-void window_size_callback(GLFWwindow* window, int width, int height)
-{
-    GLCall(glViewport(0, 0, width, height));
-}
+#include "Texture/Texture.h"
+#include "VertexBuffer/VertexBuffer.h"
+#include "IndexBuffer/IndexBuffer.h"
+#include "VertexArray/VertexArray.h"
 
 int main()
 {
@@ -47,29 +43,44 @@ int main()
     GLCall(glViewport(0, 0, windowWidth, windowHeight));
 
     GLfloat vertices[] = {
-        0.5f,  0.5f,  // top right
-        0.5f, -0.5f,  // bottom right
-        -0.5f, -0.5f,  // bottom left
-        -0.5f,  0.5f,   // top left
+        -0.5f,  -0.5f, 0.0f, 0.0f, // top right
+        0.5f, -0.5f, 1.0f, 0.0f, // bottom right
+        0.5f, 0.5f, 1.0f, 1.0f,   // bottom left
+        -0.5f,  0.5f, 0.0f, 1.0f  // top left
     };
 
     GLuint indices[] {
-        0,1,3,
-        1,2,3
+        0,1,2,
+        2,3,0
     };
 
-    VertexBuffer *vb = new VertexBuffer(vertices, 4*2*sizeof(GLfloat));
-    IndexBuffer *ib = new IndexBuffer(indices, 6);
+    GLCall(glEnable(GL_BLEND));
+    GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
+
     VertexArray *va = new VertexArray();
+
+    VertexBuffer *vb = new VertexBuffer(vertices, 4*4*sizeof(GLfloat));
+    IndexBuffer *ib = new IndexBuffer(indices, 6);
+
     VertexBufferLayout layout;
     layout.Push<float>(2);
+    layout.Push<float>(2);
+
     va->AddBuffer(*vb, layout, *ib);
 
-    Shader *shader = new Shader("shaders/triangle.shader");
+    Shader *shader = new Shader("shaders/Basic.shader");
+    shader->Bind();
+
+    Texture *texture = new Texture("res/textures/grass.png");
+    texture->Bind(0);
+    shader->SetUniform1i("u_Texture", 0);
+
+    // Unbind everything
     va->Unbind();
     vb->Unbind();
     ib->Unbind();
     shader->Unbind();
+    texture->Unbind();
 
     Renderer renderer;
 
@@ -82,12 +93,11 @@ int main()
         // Render Square
         // Bind shader to use uniform
         shader->Bind();
-        shader->SetUniform4f("u_Color", 1.0f, 0.0f, 0.0f, 1.0f);
-
+        shader->SetUniform1i("u_Texture", 0);
+        texture->Bind(0);
         renderer.Draw(*va, *ib, *shader);
 
         glfwSwapBuffers(window);
-        glfwSetWindowSizeCallback(window, window_size_callback);
         glfwPollEvents();
     }
 

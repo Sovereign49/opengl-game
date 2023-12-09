@@ -6,7 +6,7 @@ project "OpenGL"
   language "C++" 
   targetdir "bin/%{cfg.buildcfg}" 
   
-  files { "**.h", "**.cpp" }
+  files { "src/**.h", "src/**.cpp" }
 
   filter "system:linux"
       links {"GL", "glfw", "GLEW"}

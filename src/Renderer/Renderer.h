@@ -1,10 +1,11 @@
 #pragma once
 
-#include "VertexArray.h"
-#include "IndexBuffer.h"
-#include "Shader.h"
+#include "../VertexArray/VertexArray.h"
+#include "../IndexBuffer/IndexBuffer.h"
+#include "../Shader/Shader.h"
 
-class Renderer {
+class Renderer
+{
 public:
     void Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader);
     void Clear();

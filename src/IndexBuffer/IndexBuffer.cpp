@@ -1,6 +1,6 @@
 #include "IndexBuffer.h"
 
-#include "Macros.h"
+#include "../Macros/Macros.h"
 
 IndexBuffer::IndexBuffer(const unsigned int* data, unsigned int count)
     :m_Count(count)

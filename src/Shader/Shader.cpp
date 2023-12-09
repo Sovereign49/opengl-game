@@ -1,4 +1,4 @@
-#include "Macros.h"
+#include "../Macros/Macros.h"
 #include "Shader.h"
 
 #include <GL/gl.h>
@@ -101,6 +101,18 @@ void Shader::SetUniform4f(const std::string& name, float v0, float v1, float v2,
 {
     int location = GetUniformLocation(name);
     GLCall(glUniform4f(location, v0, v1, v2, v3));
+}
+
+void Shader::SetUniform1f(const std::string& name, float v0)
+{
+    int location = GetUniformLocation(name);
+    GLCall(glUniform1f(location, v0));
+}
+
+void Shader::SetUniform1i(const std::string& name, int v0)
+{
+    int location = GetUniformLocation(name);
+    GLCall(glUniform1i(location, v0));
 }
 
 int Shader::GetUniformLocation(const std::string& name)
