@@ -1,5 +1,5 @@
 #include "shader.h"
-#include "renderer.h"
+#include "Renderer.h"
 
 // constructor reads and builds the shader
 Shader::Shader(const string vertexPath, const string fragmentPath) {
@@ -20,13 +20,13 @@ Shader::Shader(const string vertexPath, const string fragmentPath) {
     ID = program;
 
 }
+// delete the shader
+Shader::~Shader() {
+    GLCall(glDeleteProgram(ID));
+}
 // use/activate the shader
 void Shader::use() {
     GLCall(glUseProgram(ID));
-}
-// delete the shader
-void Shader::del() {
-    GLCall(glDeleteProgram(ID));
 }
 // utility uniform functions
 void Shader::setBool(const string &name, bool value, int num) const {

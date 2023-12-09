@@ -1,8 +1,18 @@
 #include <GL/glew.h>
 #include <GL/gl.h>
 #include <GLFW/glfw3.h>
+
 #include "Renderer.h"
 #include "shader.h"
+
+#include "VertexBuffer.h"
+#include "IndexBuffer.h"
+#include "VertexArray.h"
+
+void window_size_callback(GLFWwindow* window, int width, int height)
+{
+    GLCall(glViewport(0, 0, width, height));
+}
 
 int main() {
     const string vertsource = "shaders/triangle.vert";
@@ -48,31 +58,16 @@ int main() {
         1,2,3
     };
 
-    GLuint VBO, VAO, IBO;
+    VertexBuffer *vb = new VertexBuffer(vertices, 4*2*sizeof(GLfloat));
+    IndexBuffer *ib = new IndexBuffer(indices, 6);
+    VertexArray *va = new VertexArray();
+    VertexBufferLayout layout;
+    layout.Push<float>(2);
+    va->AddBuffer(*vb, layout, *ib);
 
-    // Create Objects
-    GLCall(glGenVertexArrays(1, &VAO));
-    GLCall(glGenBuffers(1, &VBO));
-    GLCall(glGenBuffers(1, &IBO));
-    // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
-    GLCall(glBindVertexArray(VAO));
-
-    GLCall(glBindBuffer(GL_ARRAY_BUFFER, VBO));
-    GLCall(glBufferData(GL_ARRAY_BUFFER,sizeof(vertices), vertices, GL_STATIC_DRAW));
-
-    GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO));
-    GLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW));
-
-    // Position
-    GLCall(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*2, (void*)0));
-    GLCall(glEnableVertexAttribArray(0));
-
-    GLCall(glBindBuffer(GL_ARRAY_BUFFER, 0));
-    GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
-    GLCall(glBindVertexArray(0));
+    Shader *shader = new Shader(vertsource, fragsource);
     GLCall(glUseProgram(0));
-
-    Shader shader = Shader(vertsource, fragsource);
+    GLCall(glBindVertexArray(0));
 
     // Window run loop
     while (!glfwWindowShouldClose(window)) {
@@ -83,24 +78,23 @@ int main() {
         GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
         // Render Square
-        shader.use();
-        GLCall(GLuint location = glGetUniformLocation(shader.ID, "u_Color"));
+        shader->use();
+        GLCall(GLuint location = glGetUniformLocation(shader->ID, "u_Color"));
         ASSERT(location != -1);
         GLCall(glUniform4f(location, 1.0f, 0.0f, 0.0f, 1.0f));
-        GLCall(glBindVertexArray(VAO));
-        GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO));
+        va->Bind();
         //glDrawArrays(GL_TRIANGLES, 0, 6);
         GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0));
 
         glfwSwapBuffers(window);
+        glfwSetWindowSizeCallback(window, window_size_callback);
         glfwPollEvents();
     }
 
     // Cleanup
-    GLCall(glDeleteVertexArrays(1, &VAO));
-    GLCall(glDeleteBuffers(1, &VBO));
-    GLCall(glDeleteBuffers(1, &IBO));
-    shader.del();
+    delete shader;
+    delete vb;
+    delete ib;
     glfwDestroyWindow(window);
     glfwTerminate();
     return 0;

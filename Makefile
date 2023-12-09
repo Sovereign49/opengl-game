@@ -1,4 +1,5 @@
-SRC := src/main.cpp src/shader.cpp src/renderer.cpp
+SRC-DIR := src/
+SRC := $(wildcard ${SRC-DIR}*.cpp)
 OUT:= gl-game.out
 LIBS := -lglfw -lGLEW -lGL
 

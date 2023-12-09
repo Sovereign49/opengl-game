@@ -19,6 +19,7 @@ public:
 
     // constructor reads and builds the shader
     Shader(const string vertexPath, const string fragmentPath);
+    ~Shader();
     // use/activate the shader
     void use();
     // delete the shader
