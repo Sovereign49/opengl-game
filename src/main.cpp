@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 
 #include "Renderer.h"
-#include "shader.h"
+#include "Shader.h"
 
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
@@ -15,8 +15,6 @@ void window_size_callback(GLFWwindow* window, int width, int height)
 }
 
 int main() {
-    const string vertsource = "shaders/triangle.vert";
-    const string fragsource = "shaders/triangle.frag";
 
     glfwInit();
 
@@ -30,7 +28,7 @@ int main() {
     int windowHeight = 800;
     GLFWwindow *window = glfwCreateWindow(windowWidth, windowHeight, "OpenGl-Tut", NULL, NULL);
     if (window == NULL) {
-        cout << "Failed to create GLFW window" << endl;
+        std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
         return -1;
     }
@@ -40,7 +38,7 @@ int main() {
     glfwSwapInterval(1);
 
     if (glewInit() != GLEW_OK) {
-        cout << "Failed to initialize glew" << endl;
+        std::cout << "Failed to initialize glew" << std::endl;
     }
 
     // Create a viewport
@@ -65,9 +63,11 @@ int main() {
     layout.Push<float>(2);
     va->AddBuffer(*vb, layout, *ib);
 
-    Shader *shader = new Shader(vertsource, fragsource);
-    GLCall(glUseProgram(0));
-    GLCall(glBindVertexArray(0));
+    Shader *shader = new Shader("shaders/triangle.shader");
+    va->Unbind();
+    vb->Unbind();
+    ib->Unbind();
+    shader->Unbind();
 
     // Window run loop
     while (!glfwWindowShouldClose(window)) {
@@ -78,10 +78,8 @@ int main() {
         GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
         // Render Square
-        shader->use();
-        GLCall(GLuint location = glGetUniformLocation(shader->ID, "u_Color"));
-        ASSERT(location != -1);
-        GLCall(glUniform4f(location, 1.0f, 0.0f, 0.0f, 1.0f));
+        shader->Bind();
+        shader->SetUniform4f("u_Color", 1.0f, 0.0f, 0.0f, 1.0f);
         va->Bind();
         //glDrawArrays(GL_TRIANGLES, 0, 6);
         GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0));
@@ -92,6 +90,7 @@ int main() {
     }
 
     // Cleanup
+    delete va;
     delete shader;
     delete vb;
     delete ib;
