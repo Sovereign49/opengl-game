@@ -2,6 +2,7 @@
 #include <GL/gl.h>
 #include <GLFW/glfw3.h>
 
+#include "Macros.h"
 #include "Renderer.h"
 #include "Shader.h"
 
@@ -14,7 +15,8 @@ void window_size_callback(GLFWwindow* window, int width, int height)
     GLCall(glViewport(0, 0, width, height));
 }
 
-int main() {
+int main()
+{
 
     glfwInit();
 
@@ -69,20 +71,20 @@ int main() {
     ib->Unbind();
     shader->Unbind();
 
+    Renderer renderer;
+
     // Window run loop
     while (!glfwWindowShouldClose(window)) {
 
         // Render Here
-        // Set the bckground color
-        GLCall(glClearColor(0.07f, 0.13f, 0.17f, 1.0f));
-        GLCall(glClear(GL_COLOR_BUFFER_BIT));
+        renderer.Clear();
 
         // Render Square
+        // Bind shader to use uniform
         shader->Bind();
         shader->SetUniform4f("u_Color", 1.0f, 0.0f, 0.0f, 1.0f);
-        va->Bind();
-        //glDrawArrays(GL_TRIANGLES, 0, 6);
-        GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0));
+
+        renderer.Draw(*va, *ib, *shader);
 
         glfwSwapBuffers(window);
         glfwSetWindowSizeCallback(window, window_size_callback);
