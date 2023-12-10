@@ -10,7 +10,7 @@ project "OpenGL"
   includedirs { "src/vendor" }
 
   filter "system:linux"
-      links {"GL", "glfw", "GLEW", "imgui" }
+      links {"GL", "glfw", "GLEW" }
 
   filter "configurations:Debug"
       defines { "DEBUG" }
