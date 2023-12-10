@@ -3,13 +3,14 @@ workspace "OpenGL"
 
 project "OpenGL"
   kind "WindowedApp"
-  language "C++" 
-  targetdir "bin/%{cfg.buildcfg}" 
+  language "C++"
+  targetdir "bin/%{cfg.buildcfg}"
   
   files { "src/**.h", "src/**.cpp" }
+  includedirs { "src/vendor" }
 
   filter "system:linux"
-      links {"GL", "glfw", "GLEW"}
+      links {"GL", "glfw", "GLEW" }
 
   filter "configurations:Debug"
       defines { "DEBUG" }

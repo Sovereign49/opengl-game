@@ -11,6 +11,14 @@
 #include "IndexBuffer/IndexBuffer.h"
 #include "VertexArray/VertexArray.h"
 
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
+
+void window_size_callback(GLFWwindow* window, int windowWidth, int windowHeight)
+{
+    //GLCall(glViewport(0, 0, windowWidth, windowHeight));
+}
+
 int main()
 {
 
@@ -22,8 +30,9 @@ int main()
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     // create the window object
-    int windowWidth = 800;
-    int windowHeight = 800;
+    float windowWidth = 800;
+    float windowHeight = 800;
+    float aspectRatio = windowWidth/windowHeight;
     GLFWwindow *window = glfwCreateWindow(windowWidth, windowHeight, "OpenGl-Tut", NULL, NULL);
     if (window == NULL) {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -68,8 +77,11 @@ int main()
 
     IndexBuffer *ib = new IndexBuffer(indices, 6);
 
+    glm::mat4 proj = glm::ortho(-2.0f, 2.0f, -1.5f, 1.5f, -1.0f, 1.0f);
+
     Shader *shader = new Shader("shaders/Basic.shader");
     shader->Bind();
+    shader->SetUniformMat4f("u_MVP", proj);
 
     Texture *texture = new Texture("res/textures/grass.png");
     texture->Bind(0);
@@ -94,10 +106,12 @@ int main()
         // Bind shader to use uniform
         shader->Bind();
         shader->SetUniform1i("u_Texture", 0);
+        shader->SetUniformMat4f("u_MVP", proj);
         texture->Bind(0);
         renderer.Draw(*va, *ib, *shader);
 
         glfwSwapBuffers(window);
+        glfwSetWindowSizeCallback(window, window_size_callback);
         glfwPollEvents();
     }
 

@@ -5,9 +5,11 @@ layout (location = 1) in vec2 TexCoord;
 
 out vec2 v_TexCoord;
 
+uniform mat4 u_MVP; // Model View Projection Martix
+
 void main()
 {
-    gl_Position = position;
+    gl_Position = position * u_MVP;
     v_TexCoord = TexCoord;
 }
 

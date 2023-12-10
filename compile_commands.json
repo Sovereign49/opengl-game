@@ -1,0 +1,61 @@
+[
+          {
+            "directory": "/home/soybean44/code/cpp/gl",
+            "file": "/home/soybean44/code/cpp/gl/src/IndexBuffer/IndexBuffer.cpp",
+            "command": "cc -MD -MP -DDEBUG -I/home/soybean44/code/cpp/gl/src/vendor -g -o /home/soybean44/code/cpp/gl/obj/Debug/IndexBuffer.o -MF /home/soybean44/code/cpp/gl/obj/Debug/IndexBuffer.d -c /home/soybean44/code/cpp/gl/src/IndexBuffer/IndexBuffer.cpp"
+          }
+,
+          {
+            "directory": "/home/soybean44/code/cpp/gl",
+            "file": "/home/soybean44/code/cpp/gl/src/Macros/Macros.cpp",
+            "command": "cc -MD -MP -DDEBUG -I/home/soybean44/code/cpp/gl/src/vendor -g -o /home/soybean44/code/cpp/gl/obj/Debug/Macros.o -MF /home/soybean44/code/cpp/gl/obj/Debug/Macros.d -c /home/soybean44/code/cpp/gl/src/Macros/Macros.cpp"
+          }
+,
+          {
+            "directory": "/home/soybean44/code/cpp/gl",
+            "file": "/home/soybean44/code/cpp/gl/src/Renderer/Renderer.cpp",
+            "command": "cc -MD -MP -DDEBUG -I/home/soybean44/code/cpp/gl/src/vendor -g -o /home/soybean44/code/cpp/gl/obj/Debug/Renderer.o -MF /home/soybean44/code/cpp/gl/obj/Debug/Renderer.d -c /home/soybean44/code/cpp/gl/src/Renderer/Renderer.cpp"
+          }
+,
+          {
+            "directory": "/home/soybean44/code/cpp/gl",
+            "file": "/home/soybean44/code/cpp/gl/src/Shader/Shader.cpp",
+            "command": "cc -MD -MP -DDEBUG -I/home/soybean44/code/cpp/gl/src/vendor -g -o /home/soybean44/code/cpp/gl/obj/Debug/Shader.o -MF /home/soybean44/code/cpp/gl/obj/Debug/Shader.d -c /home/soybean44/code/cpp/gl/src/Shader/Shader.cpp"
+          }
+,
+          {
+            "directory": "/home/soybean44/code/cpp/gl",
+            "file": "/home/soybean44/code/cpp/gl/src/Texture/Texture.cpp",
+            "command": "cc -MD -MP -DDEBUG -I/home/soybean44/code/cpp/gl/src/vendor -g -o /home/soybean44/code/cpp/gl/obj/Debug/Texture.o -MF /home/soybean44/code/cpp/gl/obj/Debug/Texture.d -c /home/soybean44/code/cpp/gl/src/Texture/Texture.cpp"
+          }
+,
+          {
+            "directory": "/home/soybean44/code/cpp/gl",
+            "file": "/home/soybean44/code/cpp/gl/src/VertexArray/VertexArray.cpp",
+            "command": "cc -MD -MP -DDEBUG -I/home/soybean44/code/cpp/gl/src/vendor -g -o /home/soybean44/code/cpp/gl/obj/Debug/VertexArray.o -MF /home/soybean44/code/cpp/gl/obj/Debug/VertexArray.d -c /home/soybean44/code/cpp/gl/src/VertexArray/VertexArray.cpp"
+          }
+,
+          {
+            "directory": "/home/soybean44/code/cpp/gl",
+            "file": "/home/soybean44/code/cpp/gl/src/VertexBuffer/VertexBuffer.cpp",
+            "command": "cc -MD -MP -DDEBUG -I/home/soybean44/code/cpp/gl/src/vendor -g -o /home/soybean44/code/cpp/gl/obj/Debug/VertexBuffer.o -MF /home/soybean44/code/cpp/gl/obj/Debug/VertexBuffer.d -c /home/soybean44/code/cpp/gl/src/VertexBuffer/VertexBuffer.cpp"
+          }
+,
+          {
+            "directory": "/home/soybean44/code/cpp/gl",
+            "file": "/home/soybean44/code/cpp/gl/src/main.cpp",
+            "command": "cc -MD -MP -DDEBUG -I/home/soybean44/code/cpp/gl/src/vendor -g -o /home/soybean44/code/cpp/gl/obj/Debug/main.o -MF /home/soybean44/code/cpp/gl/obj/Debug/main.d -c /home/soybean44/code/cpp/gl/src/main.cpp"
+          }
+,
+          {
+            "directory": "/home/soybean44/code/cpp/gl",
+            "file": "/home/soybean44/code/cpp/gl/src/vendor/glm/detail/glm.cpp",
+            "command": "cc -MD -MP -DDEBUG -I/home/soybean44/code/cpp/gl/src/vendor -g -o /home/soybean44/code/cpp/gl/obj/Debug/glm.o -MF /home/soybean44/code/cpp/gl/obj/Debug/glm.d -c /home/soybean44/code/cpp/gl/src/vendor/glm/detail/glm.cpp"
+          }
+,
+          {
+            "directory": "/home/soybean44/code/cpp/gl",
+            "file": "/home/soybean44/code/cpp/gl/src/vendor/stb_image/stb_image.cpp",
+            "command": "cc -MD -MP -DDEBUG -I/home/soybean44/code/cpp/gl/src/vendor -g -o /home/soybean44/code/cpp/gl/obj/Debug/stb_image.o -MF /home/soybean44/code/cpp/gl/obj/Debug/stb_image.d -c /home/soybean44/code/cpp/gl/src/vendor/stb_image/stb_image.cpp"
+          }
+]
