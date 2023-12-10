@@ -1,6 +1,12 @@
 [
           {
             "directory": "/home/soybean44/code/cpp/gl",
+            "file": "/home/soybean44/code/cpp/gl/src/Camera/Camera.cpp",
+            "command": "cc -MD -MP -DDEBUG -I/home/soybean44/code/cpp/gl/src/vendor -g -o /home/soybean44/code/cpp/gl/obj/Debug/Camera.o -MF /home/soybean44/code/cpp/gl/obj/Debug/Camera.d -c /home/soybean44/code/cpp/gl/src/Camera/Camera.cpp"
+          }
+,
+          {
+            "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/IndexBuffer/IndexBuffer.cpp",
             "command": "cc -MD -MP -DDEBUG -I/home/soybean44/code/cpp/gl/src/vendor -g -o /home/soybean44/code/cpp/gl/obj/Debug/IndexBuffer.o -MF /home/soybean44/code/cpp/gl/obj/Debug/IndexBuffer.d -c /home/soybean44/code/cpp/gl/src/IndexBuffer/IndexBuffer.cpp"
           }

@@ -3,4 +3,4 @@ This is a project depicting my journey learning OpenGL and C++. In the end I hop
 
 ## Dependencies
 
-The dependencies of this project is glew and glfw which can be installed from your distro's package manager. If you're on Windows or Mac, good luck.
+The dependencies of this project is glew, glfw, and imgui which can be installed from your distro's package manager. If you're on Windows or Mac, good luck.
