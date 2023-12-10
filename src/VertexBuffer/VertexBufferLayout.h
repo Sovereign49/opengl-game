@@ -19,11 +19,11 @@ struct VertexBufferElement
     {
         switch (type) {
         case GL_FLOAT:
-            return 4;
+            return sizeof(GLfloat);
         case GL_UNSIGNED_INT:
-            return 4;
+            return sizeof(GLuint);
         case GL_UNSIGNED_BYTE:
-            return 1;
+            return sizeof(GLubyte);
         }
         ASSERT(false);
         return 0;
@@ -78,5 +78,9 @@ public:
     inline unsigned int GetStride() const
     {
         return m_Stride;
+    }
+    inline void SetStride(unsigned int stride)
+    {
+        m_Stride = stride;
     }
 };

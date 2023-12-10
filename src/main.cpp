@@ -42,14 +42,14 @@ int main()
     // Create a viewport
     GLCall(glViewport(0, 0, windowWidth, windowHeight));
 
-    GLfloat vertices[] = {
-        -0.5f,  -0.5f, 0.0f, 0.0f, // top right
-        0.5f, -0.5f, 1.0f, 0.0f, // bottom right
-        0.5f, 0.5f, 1.0f, 1.0f,   // bottom left
-        -0.5f,  0.5f, 0.0f, 1.0f  // top left
+    float vertices[] = {
+        -0.5f,  -0.5f, 0.0f, 0.0f,
+        0.5f, -0.5f, 1.0f, 0.0f,
+        0.5f, 0.5f, 1.0f, 1.0f,
+        -0.5f,  0.5f, 0.0f, 1.0f
     };
 
-    GLuint indices[] {
+    unsigned int indices[] {
         0,1,2,
         2,3,0
     };
@@ -60,13 +60,13 @@ int main()
     VertexArray *va = new VertexArray();
 
     VertexBuffer *vb = new VertexBuffer(vertices, 4*4*sizeof(GLfloat));
-    IndexBuffer *ib = new IndexBuffer(indices, 6);
 
     VertexBufferLayout layout;
     layout.Push<float>(2);
     layout.Push<float>(2);
+    va->AddBuffer(*vb, layout);
 
-    va->AddBuffer(*vb, layout, *ib);
+    IndexBuffer *ib = new IndexBuffer(indices, 6);
 
     Shader *shader = new Shader("shaders/Basic.shader");
     shader->Bind();
