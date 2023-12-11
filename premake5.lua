@@ -7,7 +7,7 @@ project "OpenGL"
   targetdir "bin/%{cfg.buildcfg}"
   
   files { "src/**.h", "src/**.cpp" }
-  includedirs { "src/vendor" }
+  includedirs { "src/vendor", "src" }
 
   filter "system:linux"
       links {"GL", "glfw", "GLEW" }

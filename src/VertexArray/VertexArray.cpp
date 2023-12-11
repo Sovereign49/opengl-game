@@ -1,6 +1,6 @@
 #include "VertexArray.h"
 
-#include "../Macros/Macros.h"
+#include "Macros/Macros.h"
 
 VertexArray::VertexArray()
 {

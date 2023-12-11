@@ -1,4 +1,4 @@
-#include "../Macros/Macros.h"
+#include "Macros/Macros.h"
 #include "Shader.h"
 
 #include <GL/gl.h>

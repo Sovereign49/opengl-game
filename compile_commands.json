@@ -2,108 +2,114 @@
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/Camera/Camera.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/Camera.o -MF /home/soybean44/code/cpp/gl/obj/Camera.d -c /home/soybean44/code/cpp/gl/src/Camera/Camera.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/Camera.o -MF /home/soybean44/code/cpp/gl/obj/Camera.d -c /home/soybean44/code/cpp/gl/src/Camera/Camera.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/IndexBuffer/IndexBuffer.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/IndexBuffer.o -MF /home/soybean44/code/cpp/gl/obj/IndexBuffer.d -c /home/soybean44/code/cpp/gl/src/IndexBuffer/IndexBuffer.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/IndexBuffer.o -MF /home/soybean44/code/cpp/gl/obj/IndexBuffer.d -c /home/soybean44/code/cpp/gl/src/IndexBuffer/IndexBuffer.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/Macros/Macros.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/Macros.o -MF /home/soybean44/code/cpp/gl/obj/Macros.d -c /home/soybean44/code/cpp/gl/src/Macros/Macros.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/Macros.o -MF /home/soybean44/code/cpp/gl/obj/Macros.d -c /home/soybean44/code/cpp/gl/src/Macros/Macros.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/Renderer/Renderer.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/Renderer.o -MF /home/soybean44/code/cpp/gl/obj/Renderer.d -c /home/soybean44/code/cpp/gl/src/Renderer/Renderer.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/Renderer.o -MF /home/soybean44/code/cpp/gl/obj/Renderer.d -c /home/soybean44/code/cpp/gl/src/Renderer/Renderer.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/Shader/Shader.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/Shader.o -MF /home/soybean44/code/cpp/gl/obj/Shader.d -c /home/soybean44/code/cpp/gl/src/Shader/Shader.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/Shader.o -MF /home/soybean44/code/cpp/gl/obj/Shader.d -c /home/soybean44/code/cpp/gl/src/Shader/Shader.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/Texture/Texture.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/Texture.o -MF /home/soybean44/code/cpp/gl/obj/Texture.d -c /home/soybean44/code/cpp/gl/src/Texture/Texture.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/Texture.o -MF /home/soybean44/code/cpp/gl/obj/Texture.d -c /home/soybean44/code/cpp/gl/src/Texture/Texture.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/VertexArray/VertexArray.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/VertexArray.o -MF /home/soybean44/code/cpp/gl/obj/VertexArray.d -c /home/soybean44/code/cpp/gl/src/VertexArray/VertexArray.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/VertexArray.o -MF /home/soybean44/code/cpp/gl/obj/VertexArray.d -c /home/soybean44/code/cpp/gl/src/VertexArray/VertexArray.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/VertexBuffer/VertexBuffer.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/VertexBuffer.o -MF /home/soybean44/code/cpp/gl/obj/VertexBuffer.d -c /home/soybean44/code/cpp/gl/src/VertexBuffer/VertexBuffer.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/VertexBuffer.o -MF /home/soybean44/code/cpp/gl/obj/VertexBuffer.d -c /home/soybean44/code/cpp/gl/src/VertexBuffer/VertexBuffer.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/main.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/main.o -MF /home/soybean44/code/cpp/gl/obj/main.d -c /home/soybean44/code/cpp/gl/src/main.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/main.o -MF /home/soybean44/code/cpp/gl/obj/main.d -c /home/soybean44/code/cpp/gl/src/main.cpp"
+          }
+,
+          {
+            "directory": "/home/soybean44/code/cpp/gl",
+            "file": "/home/soybean44/code/cpp/gl/src/tests/TestClearColor.cpp",
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/TestClearColor.o -MF /home/soybean44/code/cpp/gl/obj/TestClearColor.d -c /home/soybean44/code/cpp/gl/src/tests/TestClearColor.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/vendor/glm/detail/glm.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/glm.o -MF /home/soybean44/code/cpp/gl/obj/glm.d -c /home/soybean44/code/cpp/gl/src/vendor/glm/detail/glm.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/glm.o -MF /home/soybean44/code/cpp/gl/obj/glm.d -c /home/soybean44/code/cpp/gl/src/vendor/glm/detail/glm.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/vendor/imgui/imgui.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/imgui.o -MF /home/soybean44/code/cpp/gl/obj/imgui.d -c /home/soybean44/code/cpp/gl/src/vendor/imgui/imgui.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/imgui.o -MF /home/soybean44/code/cpp/gl/obj/imgui.d -c /home/soybean44/code/cpp/gl/src/vendor/imgui/imgui.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_demo.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/imgui_demo.o -MF /home/soybean44/code/cpp/gl/obj/imgui_demo.d -c /home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_demo.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/imgui_demo.o -MF /home/soybean44/code/cpp/gl/obj/imgui_demo.d -c /home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_demo.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_draw.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/imgui_draw.o -MF /home/soybean44/code/cpp/gl/obj/imgui_draw.d -c /home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_draw.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/imgui_draw.o -MF /home/soybean44/code/cpp/gl/obj/imgui_draw.d -c /home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_draw.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_impl_glfw.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/imgui_impl_glfw.o -MF /home/soybean44/code/cpp/gl/obj/imgui_impl_glfw.d -c /home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_impl_glfw.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/imgui_impl_glfw.o -MF /home/soybean44/code/cpp/gl/obj/imgui_impl_glfw.d -c /home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_impl_glfw.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_impl_opengl3.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/imgui_impl_opengl3.o -MF /home/soybean44/code/cpp/gl/obj/imgui_impl_opengl3.d -c /home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_impl_opengl3.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/imgui_impl_opengl3.o -MF /home/soybean44/code/cpp/gl/obj/imgui_impl_opengl3.d -c /home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_impl_opengl3.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_tables.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/imgui_tables.o -MF /home/soybean44/code/cpp/gl/obj/imgui_tables.d -c /home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_tables.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/imgui_tables.o -MF /home/soybean44/code/cpp/gl/obj/imgui_tables.d -c /home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_tables.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_widgets.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/imgui_widgets.o -MF /home/soybean44/code/cpp/gl/obj/imgui_widgets.d -c /home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_widgets.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/imgui_widgets.o -MF /home/soybean44/code/cpp/gl/obj/imgui_widgets.d -c /home/soybean44/code/cpp/gl/src/vendor/imgui/imgui_widgets.cpp"
           }
 ,
           {
             "directory": "/home/soybean44/code/cpp/gl",
             "file": "/home/soybean44/code/cpp/gl/src/vendor/stb_image/stb_image.cpp",
-            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -o /home/soybean44/code/cpp/gl/obj/stb_image.o -MF /home/soybean44/code/cpp/gl/obj/stb_image.d -c /home/soybean44/code/cpp/gl/src/vendor/stb_image/stb_image.cpp"
+            "command": "cc -MD -MP -I/home/soybean44/code/cpp/gl/src/vendor -I/home/soybean44/code/cpp/gl/src -o /home/soybean44/code/cpp/gl/obj/stb_image.o -MF /home/soybean44/code/cpp/gl/obj/stb_image.d -c /home/soybean44/code/cpp/gl/src/vendor/stb_image/stb_image.cpp"
           }
 ]

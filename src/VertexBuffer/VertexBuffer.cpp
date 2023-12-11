@@ -1,6 +1,6 @@
 #include "VertexBuffer.h"
 
-#include "../Macros/Macros.h"
+#include "Macros/Macros.h"
 
 VertexBuffer::VertexBuffer(const void* data, unsigned int size)
 {
