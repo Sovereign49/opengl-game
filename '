@@ -1,0 +1,36 @@
+#pragma once
+
+#include "../Renderer/Renderer.h"
+#include "glm/glm.hpp"
+
+class Quad
+{
+private:
+    Shader shader = Shader("shaders/Quad.shader");
+    VertexArray va = VertexArray();
+    IndexBuffer ib;
+    glm::mat4 proj;
+    // Create Camera and get its position;
+    glm::mat4 view;
+    // place block in middle of the screen
+    glm::mat4 model = glm::mat4(1.0f);
+public:
+    Quad(glm::mat4 proj, glm::mat4 view);
+
+    inline void SetProj(glm::mat4 proj) {
+        proj=proj;
+    }
+
+    inline Shader GetShader() const {
+        return shader;
+    }
+    inline VertexArray GetVertexArray() const {
+        return va;
+    }
+    inline IndexBuffer GetIndexBuffer() const {
+        return ib;
+    }
+    inline glm::mat4 GetMVPMatrix() const {
+        return proj * view * model;
+    }
+};

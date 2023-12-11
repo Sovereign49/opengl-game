@@ -1,5 +1,5 @@
 workspace "OpenGL"
-  configurations { "Debug", "Release" }
+  configurations { "Debug" }
 
 project "OpenGL"
   kind "WindowedApp"
@@ -12,10 +12,3 @@ project "OpenGL"
   filter "system:linux"
       links {"GL", "glfw", "GLEW" }
 
-  filter "configurations:Debug"
-      defines { "DEBUG" }
-      symbols "On"
-
-   filter "configurations:Release"
-      defines { "NDEBUG" }
-      optimize "On"

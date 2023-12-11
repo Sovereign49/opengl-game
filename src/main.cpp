@@ -57,7 +57,7 @@ int main()
         000.0f, 000.0f,     0.0f, 1.0f  //top left
     };
 
-    unsigned int indices[] {
+    unsigned int indices[] = {
         0,1,2,
         2,3,0
     };
@@ -84,13 +84,13 @@ int main()
     Camera camera;
     glm::mat4 view = camera.GetPosition();
     // place block in middle of the screen
-    glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3((windowWidth/2)-50, (windowHeight/2)-50, 0.0f));
+    glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3((windowWidth/2)-100, (windowHeight/2)-50, 0.0f));
 
     // MUST multiply in this order
     glm::mat4 mvp = proj * view * model;
-    Shader *shader = new Shader("shaders/Basic.shader");
+
+    Shader *shader = new Shader("shaders/Quad.shader");
     shader->Bind();
-    shader->SetUniformMat4f("u_MVP", mvp);
 
     Texture *texture = new Texture("res/textures/grass.png");
     texture->Bind(0);
@@ -101,7 +101,6 @@ int main()
     vb->Unbind();
     ib->Unbind();
     shader->Unbind();
-    texture->Unbind();
 
     Renderer renderer;
     ImGui::CreateContext();
@@ -113,7 +112,9 @@ int main()
 
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
     bool checkbox = false;
+    static float f = 0.0f;
 
+    int width, height;
     // Window run loop
     while (!glfwWindowShouldClose(window)) {
 
@@ -128,45 +129,41 @@ int main()
 
         // Render Square
         // Bind shader to use uniform
-        shader->Bind();
-        shader->SetUniform1i("u_Texture", 0);
-        shader->SetUniformMat4f("u_MVP", mvp);
-        texture->Bind(0);
-        renderer.Draw(*va, *ib, *shader);
+        {
+            view = camera.GetPosition();
+            model = glm::translate(glm::mat4(1.0f), glm::vec3((width/2)-100, (height/2)-50, 0.0f));
+            mvp = proj * view * model;
+
+            shader->Bind();
+            shader->SetUniformMat4f("u_MVP", mvp);
+            renderer.Draw(*va, *ib, *shader);
+        }
+        {
+            view = camera.GetPosition();
+            model = glm::translate(glm::mat4(1.0f), glm::vec3((width/2), (height/2)-50, 0.0f));
+            mvp = proj * view * model;
+
+            shader->Bind();
+            shader->SetUniformMat4f("u_MVP", mvp);
+            renderer.Draw(*va, *ib, *shader);
+        }
 
         // Show a simple window that we create ourselves. We use a Begin/End pair to create a named window.
         {
-            static float f = 0.0f;
-            static int counter = 0;
-
             ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
-
-            ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
-            ImGui::Checkbox("Checkbox", &checkbox);
-
-            ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
             ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
-
-            if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
-                counter++;
-            ImGui::SameLine();
-            ImGui::Text("counter = %d", counter);
-
             ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
             ImGui::End();
         }
 
         // Render imgui stuff
         ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
         // matrix stuff
-        int width, height;
         glfwGetWindowSize(window, &width, &height);
         GLCall(glViewport(0, 0, width, height));
         proj = glm::ortho( 0.0f, (float)width, (float)height, 0.0f,  -1.0f, 1.0f);
-        view = camera.GetPosition();
-        model = glm::translate(glm::mat4(1.0f), glm::vec3((width/2)-50, (height/2)-50, 0.0f));
-        mvp = proj * view * model;
 
         // glfw stuff
         glfwSwapBuffers(window);
@@ -204,6 +201,7 @@ int main()
     delete shader;
     delete vb;
     delete ib;
+    delete texture;
     glfwDestroyWindow(window);
     glfwTerminate();
     return 0;
