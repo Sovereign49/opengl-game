@@ -1,4 +1,5 @@
 #include "Test2Quads.h"
+#include "glm/ext/matrix_clip_space.hpp"
 
 namespace test {
 
@@ -40,10 +41,17 @@ Test2Quads::~Test2Quads()
 
 void Test2Quads::OnUpdate(float deltaTime, GLFWwindow *window)
 {
-
+    float projectionWidth = 1920.0f;
     glfwGetWindowSize(window, &width, &height);
     GLCall(glViewport(0, 0, width, height));
-    proj = glm::ortho( 0.0f, (float)width, (float)height, 0.0f,  -1.0f, 1.0f);
+    float windowAspect = ((float)width/(float)height);
+    float projectionHeight = projectionWidth/windowAspect;
+    float left = -projectionWidth/2.0f;
+    float right = projectionWidth/2.0f;
+    float top = -projectionHeight/2.0f;
+    float bottom = projectionHeight/2.0f;
+    proj = glm::ortho(left, right, bottom, top, 0.0001f, 10000.0f);
+    model = glm::mat4(1.0f);
 
     // keyboard input;
     int state = glfwGetKey(window, GLFW_KEY_W);
@@ -68,13 +76,10 @@ void Test2Quads::OnUpdate(float deltaTime, GLFWwindow *window)
     }
 }
 
-void Test2Quads::OnRender()
+void Test2Quads::OnRender(Renderer renderer)
 {
-    GLCall(glClearColor(0.45f, 0.55f, 0.60f, 1.00f));
-    renderer.Clear();
     {
         glm::mat4 view = camera.GetPosition();
-        model = glm::translate(glm::mat4(1.0f), glm::vec3((width/2)-100, (height/2)-50, 0.0f));
         glm::mat4 mvp = proj * view * model;
 
         shader.Bind();
@@ -83,7 +88,7 @@ void Test2Quads::OnRender()
     }
     {
         glm::mat4 view = camera.GetPosition();
-        model = glm::translate(glm::mat4(1.0f), glm::vec3((width/2), (height/2)-50, 0.0f));
+        model = glm::translate(model, glm::vec3(-100.0f, 0.0f, 0.0f));
         glm::mat4 mvp = proj * view * model;
 
         shader.Bind();

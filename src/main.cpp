@@ -19,6 +19,7 @@
 #include "imgui/imgui_impl_glfw.h"
 #include "imgui/imgui_impl_opengl3.h"
 
+#include "tests/Test.h"
 #include "tests/TestClearColor.h"
 #include "tests/Test2Quads.h"
 
@@ -59,53 +60,39 @@ int main()
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 330 core");
 
-    test::TestClearColor testClearColor;
-    test::Test2Quads test2Quads;
+    test::Test *currentTest = nullptr;
+    test::TestMenu* testMenu = new test::TestMenu(currentTest);
+    currentTest = testMenu;
 
-    enum TestChoice {
-        clearColor, twoQuads
-    };
-    TestChoice currentTest = clearColor;
-    std::string currentTestName = "Clear Color";
+    testMenu->RegisterTest<test::TestClearColor>("Clear Color");
+    testMenu->RegisterTest<test::Test2Quads>("2 Quads");
+
+    Renderer renderer;
     // Window run loop
     while (!glfwWindowShouldClose(window)) {
+        GLCall(glClearColor(0.39f, 0.58f, 0.92f, 1.0f));
+        renderer.Clear();
 
-        //GLCall(glClearColor(1.0f,1.0f,1.0f,1.0f));
-        //GLCall(glClear(GL_COLOR_BUFFER_BIT));
         // Start the Dear ImGui frame
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        switch (currentTest) {
-        case clearColor:
-            testClearColor.OnUpdate(0.0f);
-            testClearColor.OnRender();
-            testClearColor.OnImGuiRender();
-            break;
-        case twoQuads:
-            test2Quads.OnUpdate(0.0f, window);
-            test2Quads.OnRender();
-            test2Quads.OnImGuiRender();
-
-            break;
-
+        if (currentTest)
+        {
+            currentTest->OnUpdate(0.0f, window);
+            currentTest->OnRender(renderer);
+            ImGui::Begin("Test");
+            if (currentTest != testMenu && ImGui::Button("<-"))
+            {
+                delete currentTest;
+                currentTest = testMenu;
+            }
+            currentTest->OnImGuiRender();
+            ImGui::End();
         }
 
         // Test Selector
-        ImGui::Begin("Test Selector");
-        ImGui::Text("Current Test: %s", currentTestName.c_str());
-        if (ImGui::Button("Clear Color"))
-        {
-            currentTestName = "Clear Color";
-            currentTest = clearColor;
-        }
-        if (ImGui::Button("2 Quads"))
-        {
-            currentTestName = "2 Quads";
-            currentTest = twoQuads;
-        }
-        ImGui::End();
 
         // Render imgui stuff
         ImGui::Render();

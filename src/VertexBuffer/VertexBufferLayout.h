@@ -3,12 +3,6 @@
 
 #include "Macros/Macros.h"
 
-template<typename T>
-struct identity
-{
-    typedef T type;
-};
-
 struct VertexBufferElement
 {
     unsigned int type;
@@ -36,8 +30,8 @@ private:
     std::vector<VertexBufferElement> m_Elements;
     unsigned int m_Stride;
 
-    template<typename TL>
-    void Push(unsigned int count, identity<TL>)
+    template<typename T>
+    void Push(unsigned int count, identity<T>)
     {
         static_assert(false);
     }
@@ -64,10 +58,10 @@ public:
     VertexBufferLayout()
         : m_Stride(0) {}
 
-    template<typename TL>
+    template<typename T>
     void Push(unsigned int count)
     {
-        Push(count, identity<TL>());
+        Push(count, identity<T>());
 
     }
 
