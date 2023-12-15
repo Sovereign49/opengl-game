@@ -13,6 +13,7 @@ public:
     ~VertexArray();
 
     void AddBuffer(const VertexBuffer& vb, const VertexBufferLayout& layout);
+    void AddAttrib(const VertexBuffer& vb, const VertexBufferLayout& layout);
     void Bind() const;
     void Unbind() const;
     inline unsigned int GetID()
