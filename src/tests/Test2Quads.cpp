@@ -22,7 +22,7 @@ unsigned int indices[] = {
 
 Test2Quads::Test2Quads() : ib(indices, 6)
 {
-    VertexBuffer vb = VertexBuffer(vertices, 5*4*sizeof(GLfloat));
+    VertexBuffer vb = VertexBuffer(vertices, sizeof(vertices));
     VertexBufferLayout layout;
     layout.Push<float>(3);
     layout.Push<float>(2);
