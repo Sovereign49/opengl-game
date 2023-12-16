@@ -14,11 +14,11 @@
 
 namespace test {
 
-class Test2Quads : public Test
+class TestCube : public Test
 {
 public:
-    Test2Quads();
-    ~Test2Quads();
+    TestCube();
+    ~TestCube();
 
     virtual void OnUpdate(float deltaTime, GLFWwindow *window) override;
     void OnRender(Renderer renderer) override;
@@ -28,11 +28,10 @@ private:
     IndexBuffer ib;
     Texture texture = Texture("res/textures/grass.png");
     glm::mat4 proj = glm::ortho(0.0f, 800.0f, 800.0f, 0.0f, -1.0f, 1.0f);
-    Camera camera = Camera(glm::vec3(0.0f, 0.0f, 0.0f));
+    Camera camera;
     glm::mat4 model = glm::scale(glm::mat4(1.0f),glm::vec3(100.0f));
     int width = 800;
     int height = 800;
-
 };
 
 }

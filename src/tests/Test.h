@@ -7,6 +7,11 @@
 #include <functional>
 #include <GLFW/glfw3.h>
 
+struct Vertex {
+    glm::vec3 position;
+    glm::vec2 texture;
+};
+
 namespace test {
 
 class Test

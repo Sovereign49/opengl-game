@@ -3,5 +3,7 @@
 
 void Camera::moveCamera(float x, float y, float z)
 {
-    m_Position = glm::translate(m_Position,glm::vec3(-x, -y, -z));
+    m_Eye.x -= x;
+    m_Eye.y -= y;
+    m_Eye.z -= z;
 }

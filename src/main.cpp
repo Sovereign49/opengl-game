@@ -22,6 +22,7 @@
 #include "tests/Test.h"
 #include "tests/TestClearColor.h"
 #include "tests/Test2Quads.h"
+#include "tests/TestCube.h"
 
 int main()
 {
@@ -66,6 +67,7 @@ int main()
 
     testMenu->RegisterTest<test::TestClearColor>("Clear Color");
     testMenu->RegisterTest<test::Test2Quads>("2 Quads");
+    testMenu->RegisterTest<test::TestCube>("Cube");
 
     Renderer renderer;
     // Window run loop
